@@ -33,7 +33,7 @@ void print_combinations(int n) {
 
 int main() {
     int n = 3;
-    print_combinations(2);
+    print_combinations(n);
     return 0;
 }
 
