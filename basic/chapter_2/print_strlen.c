@@ -11,7 +11,7 @@ int ft_strlen(char *str) {
     {
         length++;
     }
-    return length + 1;
+    return length;
 }
 
 int main(int argc, char const *argv[])
