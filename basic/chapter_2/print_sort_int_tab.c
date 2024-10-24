@@ -34,7 +34,7 @@ void quick_sort(int *array, int low, int high) {
     }
 }
 
-void print_sort_int_tab(int *array, int size) {
+void sort_int_array(int *array, int size) {
     quick_sort(array, 0, size - 1);
 }
 
