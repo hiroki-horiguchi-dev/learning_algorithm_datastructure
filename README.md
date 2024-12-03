@@ -13,16 +13,11 @@
 - 知り合いが情報系専攻で、こういう課題やってたよ、の pdf 資料をもらったのでそれを解いていく
 
 ## Books And Refarencies
-- 苦しんで覚えるC言語 を一日で全部読んだので、 [Notion](https://www.notion.so/C-a9782178ce2a4629809702babc52b416) にまとめてます
-- この本に載っている関数を使えない制約が pdf 資料にあって、あんまり読んだ意味がない状態になっているのがつらみです。。
-- [CS50 2024 Lectures](https://www.youtube.com/playlist?list=PLhQjrBD2T381WAHyx1pq-sBfykqMBI7V4)
+- 苦しんで覚えるC言語 ✅
+- [CS50 2024 Lectures](https://www.youtube.com/playlist?list=PLhQjrBD2T381WAHyx1pq-sBfykqMBI7V4) ✅
     - [現役エンジニアが CS50 をさらっと見た感想](https://zenn.dev/rokki08/articles/5b63e02053afb9)にまとめてます
-- [The GNU C Reference Manual](https://www.gnu.org/software/gnu-c-manual/gnu-c-manual.html)
+- [The GNU C Reference Manual](https://www.gnu.org/software/gnu-c-manual/gnu-c-manual.html) ✅
     - CS50 と被る部分が多いため、ポインタの概念だけ `intermediate/refarence` に復習としてまとめました
 - [世界で闘うプログラミング力を鍛える本 コーディング面接189問とその解法 Kindle版](https://amzn.asia/d/8AFtdwg)
 - [プログラミングコンテスト攻略のためのアルゴリズムとデータ構造 Kindle版](https://amzn.asia/d/exOvIiF)
-
-
-## Project Tree
-
-
+- [データ構造とアルゴリズム［第2版］](https://www.saiensu.co.jp/search/?isbn=978-4-86481-085-2&y=2022) を優先的に進めます
