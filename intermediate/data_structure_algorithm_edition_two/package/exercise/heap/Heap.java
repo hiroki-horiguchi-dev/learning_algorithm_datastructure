@@ -16,6 +16,13 @@ public class Heap {
 		//
 		//	ここにコードを書く
 		//
+		int i = last;
+		while (i > 0) {
+			if (data[(i-1)/2] < data[i]) {
+				swap(data, (i-1)/2, i);
+				i = (i-1)/2;
+			}
+		}
 
 		
 		// 以下、ダミーのコード　親とひとつだけ入れ替える
@@ -42,13 +49,31 @@ public class Heap {
 		//
 		//	ここにコードを書く
 		//
-
-		
-		// 以下、ダミーのコード　子とひとつだけ入れ替える
 		int i = 0;
-		Main.print(this, i, i*2+2);	//　表示
-		swap(data, i, i*2+2);	//右の子と交換
-
+		// last/2 でループを子を持つノードに限定する
+		while (i < last/2) {
+			// ここでまとめて使う変数を定義してしまうほうが読みやすいと思う
+			// ヒープか二分木を扱っているよ処理だ.と言う意図も伝わるかな
+			int parent = data[i];
+			// 境界外アクセスで ArrayIndexOutOfBoundsException が発生する可能性がある
+			// が、解答コードにその旨の記載がないため一旦そのままとする 
+			int left = data[(i*2) + 1];
+			int right = data[(i*2) + 2];
+			if (parent > left) {
+				if (left > right) {
+					swap(data, i, i*2+2);
+					i = (2*i) + 2;
+				} else {
+					swap(data, i, i*2+1);
+					i = (2*i) + 1;
+				}
+			} else if(parent > right) {
+				swap(data, i, i*2+2);
+				i = (2*i) + 2;
+			} else {
+				return object;
+			}
+		}
 		return object;
 	} 
 	
