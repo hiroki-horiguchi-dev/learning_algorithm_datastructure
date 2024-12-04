@@ -17,7 +17,7 @@ public class Heap {
 		//	‚±‚±‚ÉƒR[ƒh‚ğ‘‚­
 		//
 		int i = last;
-		while (last > 0) {
+		while (i > 0) {
 			if (data[(i-1)/2] < data[i]) {
 				swap(data, (i-1)/2, i);
 				i = (i-1)/2;
