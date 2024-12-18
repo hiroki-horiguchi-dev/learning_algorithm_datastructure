@@ -65,10 +65,9 @@ public class BinarySearchTree {
 
 	Node deletemin(Node node, Node parent){	// 子孫のうちの最小値を返却する
 		// 4回目 🔺
-		// 理解し、memo.md にまとめた
 		if (node.left == null) { // 自身が最小値
-			if (parent.left == node) { // ⚠️ 疑問: この判定が必要なのかなぞい、なぜなら、deletemin を読んでいる段階で node.right を渡しているから。そして、deletemin を再起的に呼ぶことはないから
-				parent.left = node.right; // 完全な理解ではない
+			if (parent.left == node) { // 汎用的な分岐
+				parent.left = node.right; 
 			} else {
 				parent.right = node.right;
 			}
