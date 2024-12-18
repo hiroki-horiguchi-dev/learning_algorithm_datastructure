@@ -32,13 +32,61 @@ public class BinarySearchTree {
 	}
 
 	Node delete(Node node, int object) {
-		// 3回目
-		// 理解し、memo.md にまとめた
+		// 4回目 🔺
+		if (node == null) {
+			return null;
+		}
+
+		if (object < node.object) {
+			// 左を探索
+			node.left = delete(node.left, object);
+			return node;
+		} eles if (object > node.object) {
+			// 右を探索
+			node.right = delete(node.right, object);
+			return node;
+		} eles {
+			// 一致しているので削除対象ノードの形態によって処理を変える
+			if (node.left == null && node.right == null) { // 葉ノードの場合
+				return null;
+			} else if (node.left == null && node.right != null) { // 枝ノードの場合、ただし右の子のみ存在する
+				return node.right;
+			} else if (node.left != null && node.right == null) { // 枝ノードの場合、ただし左の好み存在する
+				return node.left;
+			} else {
+				// 一致するノードが存在し、削除する処理
+				Node min = deletemin(node, node.right);
+				min.right = node.right;
+				min.left = node.left;
+				return min;
+			}
+		}
 	}
 
 	Node deletemin(Node node, Node parent){	// 子孫のうちの最小値を返却する
-		// 3回目
+		// 4回目 🔺
 		// 理解し、memo.md にまとめた
+		if (node.left == null) { // 自身が最小値
+			if (parent.left == node) { // ⚠️ 疑問: この判定が必要なのかなぞい、なぜなら、deletemin を読んでいる段階で node.right を渡しているから。そして、deletemin を再起的に呼ぶことはないから
+				parent.left = node.right; // 完全な理解ではない
+			} else {
+				parent.right = node.right;
+			}
+			// 自身が最小値であり、それを返却していること
+			// その最小値に対して、parent に自信を飛ばしてくっつけた right および left ノードを
+			// 呼び出し元の min.right, min.left の処理で繋ぎ直して削除していること
+			// これが理解できれば問題ない
+			return node;
+		}
+
+		parent = node;
+		node = node.left;
+		while (node.left != null) {
+			parent = node;
+			node = node.left;
+		}
+		parent.left = node.right; // node.right を代入する意図がわからん.nullじゃダメか？
+		return node;
 	}	
 }
 
