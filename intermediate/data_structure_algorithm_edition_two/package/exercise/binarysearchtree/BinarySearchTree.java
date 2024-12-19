@@ -1,8 +1,6 @@
 import java.util.*;
 
 public class BinarySearchTree {
-	
-	// ?O?????G???g???[?|?C???g?@(???????R?[?h)
 	void insert(int object){
 		if (root == null)
 			root = new Node(object);
@@ -16,53 +14,85 @@ public class BinarySearchTree {
 	
 	
 	
-	
-	
-	// ??A?I??q?????????K??????????
 	void insert(Node node, int object){
-
-		// ?????_?~?[??R?[?h?@?????????q??????????????t????????B
-		if (node.left != null)
-			insert(node.left, object);
-		else
-			node.left = new Node(object);
-		
+		// 4回目 ✅
+		if (object < node.object) {
+			if (node.left == null) {
+				node.left = new Node(object);
+			} else {
+				insert(node.left, object);
+			}
+		} else {
+			if (node.right == null) {
+				node.right = new Node(object);
+			} else {
+				insert(node.right, object);
+			}
+		}
 	}
 
-	// ????R?[?h?B??A?I??~?????????I????????????m?[?h????????B?????????? deletemin??????????B
-	Node delete(Node node, int object){
+	Node delete(Node node, int object) {
+		// 5回目 ✅
+		// 考えるケースで重要なのは、削除対象ノードが葉なのか、子を一つ持つ枝なのか、子を二つ持つ枝なのか、だけ
+		if (node == null) return null;
 
-		// ?????_?~?[??R?[?h?@?????????q?????????????????????????????
-		if (node == null)
-			return null;
-		else if (node.object == object)
-			return node.left;
-		else {
+		if (object < node.object) {
+			// 左辿る、削除なのでnodeの左を更新していく
 			node.left = delete(node.left, object);
 			return node;
-		}
-	}
-	
-	//?q????????????l??????????
-	Node deletemin(Node node, Node parent){	
-
-		// ?????_?~?[??R?[?h?@?????????q???????????????[????
-		if (node == null)
-			return null;
-		else if (node.left == null){
-			parent.left = null;
+		} else if (object > node.object) {
+			// 右辿る、同様に node の右を更新
+			node.right = delete(node.right, object);
 			return node;
 		}
-		else
-			return deletemin(node.left, node);
+		else {
+			// 削除対象ノード
+			// 上記で述べた場合わけをここで気にする必要がある
+			if (node.left == null && node.right == null) {
+				// 削除対象なし、easy
+				return null;
+			} else if (node.left == null && node.right != null) {
+				// 削除対象が右に子を一つ持つ
+				return node.right;
+			} else if (node.left != null && node.right == null) {
+				// 削除対象が左に子を一つ持つ
+				return node.left;
+			} else {
+				// いちばん厄介なパターン
+				// 両方に子がいるので最小値を取得して、その最小値の左右を削除対象ののノード左右の子とつげ変えて返却すれば良い
+				Node min = deletemin(node.right, node);
+				min.left = node.left;
+				min.right = node.right;
+				return min;
+			}
+		}
 		
+	}
+
+	Node deletemin(Node node, Node parent){	// 子孫のうちの最小値を返却する
+		// 5回目 ✅
+		if (node.left == null) { // 自身が最小値パターン
+			if (node == parent.left) {
+				parent.left = node.right;
+			} else {
+				parent.right = node.right;
+			}
+			return node;
+		}
+
+		// 削除対象の右子ノードの左の子ノードが無くなるまで探索して返却
+		parent = node;
+		node = node.left;
+		while (node.left != null) {
+			parent = node;
+			node = node.left;
+		}
+		parent.left = node.right;
+		return node;
 	}	
-
-
 }
 
 
-// Node ???`?@(???????R?[?h)
 class Node {
 	Node left;
 	Node right;
