@@ -18,9 +18,7 @@
     - [現役エンジニアが CS50 をさらっと見た感想](https://zenn.dev/rokki08/articles/5b63e02053afb9)にまとめてます
 - [The GNU C Reference Manual](https://www.gnu.org/software/gnu-c-manual/gnu-c-manual.html) ✅
     - CS50 と被る部分が多いため、ポインタの概念だけ `intermediate/refarence` に復習としてまとめました
-- [世界で闘うプログラミング力を鍛える本 コーディング面接189問とその解法 Kindle版](https://amzn.asia/d/8AFtdwg)
-- [プログラミングコンテスト攻略のためのアルゴリズムとデータ構造 Kindle版](https://amzn.asia/d/exOvIiF)
-- [データ構造とアルゴリズム［第2版］](https://www.saiensu.co.jp/search/?isbn=978-4-86481-085-2&y=2022) を優先的に進めます
+- [データ構造とアルゴリズム［第2版］](https://www.saiensu.co.jp/search/?isbn=978-4-86481-085-2&y=2022) ✅
     - 集合の表現
         - ヒープ ✅
         - ２分探索木 ✅
@@ -28,12 +26,13 @@
                 - avl: テキストにサンプルプログラムがないので飛ばす
                 - B木: 同様なので飛ばす
         - 集合群
-    - ソート
-        - バブルソート
-        - クイックソート
-        - マージソート
-        - ヒープソート
+    - ソート✅
+        - バブルソート✅
+        - クイックソート✅
+        - マージソート✅
+        - ヒープソート✅
     - グラフ
-        - ダイアクストラ
-        - プリム
-        - クラスカル
+        - ダイアクストラ✅
+        - プリム✅
+        - クラスカル✅
+    - 実装をベースとして進めると時間がかかりすぎるので Leetcode に戻りました
